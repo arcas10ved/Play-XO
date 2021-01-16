@@ -1,25 +1,27 @@
 
 
-function ReplaceForm() {
-  // Three places to customize:
+// function ReplaceForm() {
+//   // Three places to customize:
 
-  // Specify the id of the form.
-  var IDofForm = "form3";
+//   // Specify the id of the form.
+//   var IDofForm = "form3";
 
-  // Specify the id of the div containing the form.
-  var IDofDivWithForm = "example3";
+//   // Specify the id of the div containing the form.
+//   var IDofDivWithForm = "example3";
 
-  // Specify the id of the div with the content to replace the form with.
-  var IDforReplacement = "for_replacement_grid";
+//   // Specify the id of the div with the content to replace the form with.
+//   var IDforReplacement = "for_replacement_grid";
 
-  // End of customizations.
+//   // End of customizations.
 
-  // This line submits the form. (If Ajax processed, call Ajax function, instead.)
-  document.getElementById(IDofForm).submit();
+//   // This line submits the form. (If Ajax processed, call Ajax function, instead.)
+//   document.getElementById(IDofForm).submit();
 
-  // This replaces the form with the replacement content.
-  document.getElementById(IDofDivWithForm).innerHTML = document.getElementById(IDforReplacement).innerHTML;
-}
+//   // This replaces the form with the replacement content.
+//   document.getElementById(IDofDivWithForm).innerHTML = document.getElementById(IDforReplacement).innerHTML;
+// }
+
+
 
 
 
@@ -35,9 +37,17 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 
+var random = Math.random() * 100;
+if (random <= 60) {
+  statusDiv.innerHTML = `Player 1 turn`;
+}
+else {
+  statusDiv.innerHTML = `Player 2 turn`;
+}
 
-// functions
-const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
+
+  // functions
+  const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const handleWin = (letter) => {
   gameIsLive = false;
