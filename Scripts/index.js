@@ -42,9 +42,9 @@ const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 const handleWin = (letter) => {
   gameIsLive = false;
   if (letter === 'x') {
-    statusDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
+    statusDiv.innerHTML = `Player 1 has won!`;
   } else {
-    statusDiv.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
+    statusDiv.innerHTML = `<span> Player 2 has won!</span>`;
   }
 };
 
@@ -106,9 +106,9 @@ const checkGameStatus = () => {
   } else {
     xIsNext = !xIsNext;
     if (xIsNext) {
-      statusDiv.innerHTML = `${xSymbol} is next`;
+      statusDiv.innerHTML = `Player 1 turn`;
     } else {
-      statusDiv.innerHTML = `<span>${oSymbol} is next</span>`;
+      statusDiv.innerHTML = `<span> Player 2 turn </span>`;
     }
   }
 };
@@ -117,7 +117,7 @@ const checkGameStatus = () => {
 // event Handlers
 const handleReset = () => {
   xIsNext = true;
-  statusDiv.innerHTML = `${xSymbol} is next`;
+  statusDiv.innerHTML = `Player 1 is next`;
   for (const cellDiv of cellDivs) {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');

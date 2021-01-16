@@ -88,8 +88,14 @@ body {
   width: 200px;
 }
 
-.x,
+.x {
+    color: transparent;
+    cursor: default;
+  }
+  
+
 .o {
+  color: transparent;
   cursor: default;
 }
 
@@ -97,24 +103,25 @@ body {
   background-image: url(../Resources/X.png);
   background-size:contain;
   background-repeat: no-repeat;
+  margin-top: 80px;
   content: '×';
-  font-size: 200px;
+
 }
 
 .o::after {
   background-image: url(../Resources/O.png);
   background-size:contain;
   background-repeat: no-repeat;
+  margin-top: 80px;
   content: '○';
-  color: #ffffff;
-  font-size: 225px;
+  
 }
 
 .won::after {
   filter: invert(100%) sepia() saturate(10000%) hue-rotate(0deg);
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   .game-grid {
     margin-top: 25px;
     grid-gap: 10px;
