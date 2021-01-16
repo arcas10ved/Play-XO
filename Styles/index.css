@@ -50,6 +50,7 @@ body {
 }
 
 .status-action {
+  color: blue;
   display: flex;
   margin-top: 25px;
   font-size: 25px;
@@ -58,15 +59,17 @@ body {
 }
 
 .status span {
-  color: #F2EBD3;
+  
+  color: red;
 }
 
 .reset {
+  color: black;
   cursor: pointer;
 }
 
 .reset:hover {
-  color: #F2EBD3;
+  color: #10976c;
 }
 
 .game-grid {

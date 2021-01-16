@@ -105,9 +105,12 @@ const checkGameStatus = () => {
     statusDiv.innerHTML = 'Game is tied!';
   } else {
     xIsNext = !xIsNext;
+
     if (xIsNext) {
       statusDiv.innerHTML = `Player 1 turn`;
+
     } else {
+
       statusDiv.innerHTML = `<span> Player 2 turn </span>`;
     }
   }
@@ -117,7 +120,7 @@ const checkGameStatus = () => {
 // event Handlers
 const handleReset = () => {
   xIsNext = true;
-  statusDiv.innerHTML = `Player 1 is next`;
+  statusDiv.innerHTML = `Player 1 turn`;
   for (const cellDiv of cellDivs) {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
