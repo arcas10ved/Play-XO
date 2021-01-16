@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +24,9 @@
   }
   
   .playerX {
+    
     background-image: url('../Resources/X.png')
+    
   }
   
   .playerO {
