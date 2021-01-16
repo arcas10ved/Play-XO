@@ -11,23 +11,28 @@
 <body>
 
 
-    <div id="example3" style="text-align:center; border:1px solid black; padding:10px;">
-        <p style="margin:0;"><b>Third example.</b></p>
-        <form id="form3" method="post" action="script.php">
-            Name: <input type="text" style="width:200px;"><br>
-            <input type="button" onclick="ReplaceForm()" value="Click Me" style="width:300px;">
+    <div id="example3">
+        <p style="margin:0;"><b>Play X O</b></p>
+        <form id="form3" method="post" action="./Scripts/index.js">
+            <p>Player 1 </p> <input type="text"><br><br><br>
+    
+        </form>
+        <form id="form4" method="post" action="./Scripts/index.js">
+            <p>Player 2</p> <input type="text"><br><br><br>
+    
+            <input type="button" onclick="ReplaceForm()" value="Start Game" style="width:100px;">
         </form>
     </div>
 
-    <div id="for_replacement" style="display:none;">
+    <div id="for_replacement_grid" style="display:none;">
         <p>
             <b>This replaces the form when the button is clicked.</b>
             <br>(This visual example does not submit. A real form would.)
     </div>
 
-   
-<!-- 
-    <div class="grid">
+
+    
+    <div class="for_replacement_grid">
         <div></div>
         <div></div>
         <div></div>
@@ -38,7 +43,7 @@
         <div></div>
         <div></div>
     </div>
- -->
+ 
 
     <script src="Scripts/index.js"></script>
 
