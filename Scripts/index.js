@@ -37,6 +37,7 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 
+//Random generated start
 var random = Math.random() * 100;
 if (random <= 60) {
   statusDiv.innerHTML = `Player 1 turn`;
