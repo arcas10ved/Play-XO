@@ -26,10 +26,12 @@ function getInputValue() {
   if (random <= 60) {
     currentPlayer = 1;
     statusDiv.innerHTML = player1Input + " turn";
+    statusDiv.style.color= "blue";
   }
   else {
     currentPlayer = 2;
     statusDiv.innerHTML = player2Input + " turn";
+    statusDiv.style.color= "red";
   }
 }
 //  statusDiv.style.color= "green";
@@ -42,8 +44,10 @@ const handleWin = (letter) => {
   gameIsLive = false;
   if (currentPlayer === 1) {
     statusDiv.innerHTML = player1Input.value + " has won!";
+    statusDiv.style.color= "blue";
   } else {
     statusDiv.innerHTML = player2Input.value + " has won!";
+    statusDiv.style.color= "red";
   }
 };
 
@@ -103,17 +107,20 @@ const checkGameStatus = () => {
     gameIsLive = false;
     statusDiv.innerHTML = 'Game is tied!';
   } else {
-    
-     xIsNext = !xIsNext;
 
-     if (currentPlayer===2) {
-      statusDiv.innerHTML = player2Input.value + ` turn`;
-      currentPlayer=1;
+    xIsNext = !xIsNext;
 
-   } else {
-     currentPlayer=2;
+    if (currentPlayer === 2) {
       statusDiv.innerHTML = player1Input.value + ` turn`;
-    } 
+      statusDiv.style.color= "blue";
+      currentPlayer = 1;
+      
+
+    } else {
+      currentPlayer = 2;
+      statusDiv.style.color= "red";
+      statusDiv.innerHTML = player2Input.value + ` turn`;
+    }
   }
 };
 
@@ -121,7 +128,7 @@ const checkGameStatus = () => {
 // event Handlers
 const handleReset = () => {
   xIsNext = true;
-  statusDiv.innerHTML = `Player 1 turn`;
+  statusDiv.innerHTML = `Press Start Game`;
   for (const cellDiv of cellDivs) {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');

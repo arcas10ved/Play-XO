@@ -80,12 +80,14 @@ body {
 }
 
 .x {
+    background: blue;
     color: transparent;
     cursor: default;
   }
   
 
 .o {
+  background: red;
   color: transparent;
   cursor: default;
 }
@@ -103,7 +105,7 @@ body {
   background-image: url(../Resources/O.png);
   background-size:contain;
   background-repeat: no-repeat;
-  margin-top: 80px;
+  margin-top: 100px;
   content: '○';
   
 }
@@ -152,12 +154,4 @@ body {
   }
 }
   
-  /* .playerX {
-    
-    background-image: url('../Resources/X.png')
-    
-  }
   
-  .playerO {
-    background-image: url('../Resources/O.png')
-  } */
