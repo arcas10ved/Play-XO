@@ -1,25 +1,5 @@
 
 
-// function ReplaceForm() {
-//   // Three places to customize:
-
-//   // Specify the id of the form.
-//   var IDofForm = "form3";
-
-//   // Specify the id of the div containing the form.
-//   var IDofDivWithForm = "example3";
-
-//   // Specify the id of the div with the content to replace the form with.
-//   var IDforReplacement = "for_replacement_grid";
-
-//   // End of customizations.
-
-//   // This line submits the form. (If Ajax processed, call Ajax function, instead.)
-//   document.getElementById(IDofForm).submit();
-
-//   // This replaces the form with the replacement content.
-//   document.getElementById(IDofDivWithForm).innerHTML = document.getElementById(IDforReplacement).innerHTML;
-// }
 
 
 
@@ -36,23 +16,30 @@ const oSymbol = '○';
 // game variables
 let gameIsLive = true;
 let xIsNext = true;
-
+let currentPlayer = 0;
 //Random generated
+
+currentPlayer=1;
+statusDiv.innerHTML = `Player 1 turn`;
+
 var random = Math.random() * 100;
 if (random <= 60) {
+  currentPlayer = 1;
   statusDiv.innerHTML = `Player 1 turn`;
 }
 else {
+  currentPlayer = 2;
   statusDiv.innerHTML = `Player 2 turn`;
 }
+//  statusDiv.style.color= "green";
 
 
-  // functions
-  const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
+//functions
+const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 
 const handleWin = (letter) => {
   gameIsLive = false;
-  if (letter === 'x') {
+  if (currentPlayer === 1) {
     statusDiv.innerHTML = `Player 1 has won!`;
   } else {
     statusDiv.innerHTML = `<span> Player 2 has won!</span>`;
@@ -115,14 +102,16 @@ const checkGameStatus = () => {
     gameIsLive = false;
     statusDiv.innerHTML = 'Game is tied!';
   } else {
-    xIsNext = !xIsNext;
+    
+     xIsNext = !xIsNext;
 
-    if (xIsNext) {
+     if (currentPlayer===2) {
       statusDiv.innerHTML = `Player 1 turn`;
+      currentPlayer=1;
 
-    } else {
-
-      statusDiv.innerHTML = `<span> Player 2 turn </span>`;
+   } else {
+     currentPlayer=2;
+      statusDiv.innerHTML = `Player 2 turn`;
     }
   }
 };
@@ -147,14 +136,24 @@ const handleCellClick = (e) => {
     return;
   }
 
+  // if (xIsNext) {
+  //   classList.add('x');
+  //   checkGameStatus();
+  // } else {
+  //   classList.add('o');
+  //   checkGameStatus();
+  // }
+
   if (xIsNext) {
     classList.add('x');
-    checkGameStatus();
+
   } else {
     classList.add('o');
-    checkGameStatus();
+
   }
+  checkGameStatus();
 };
+
 
 
 // event listeners
@@ -163,5 +162,8 @@ resetDiv.addEventListener('click', handleReset);
 for (const cellDiv of cellDivs) {
   cellDiv.addEventListener('click', handleCellClick)
 }
+
+
+
 
 
