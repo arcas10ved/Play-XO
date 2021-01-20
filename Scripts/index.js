@@ -2,9 +2,6 @@
 
 
 
-
-
-
 const statusDiv = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset');
 const cellDivs = document.querySelectorAll('.game-cell');
@@ -17,19 +14,23 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 let currentPlayer = 0;
+
 //Random generated
+function getInputValue() {
+  let player1Input = document.getElementById("player1Input").value;
+  let player2Input = document.getElementById("player2Input").value;
 
-currentPlayer=1;
-statusDiv.innerHTML = `Player 1 turn`;
-
-var random = Math.random() * 100;
-if (random <= 60) {
   currentPlayer = 1;
-  statusDiv.innerHTML = `Player 1 turn`;
-}
-else {
-  currentPlayer = 2;
-  statusDiv.innerHTML = `Player 2 turn`;
+
+  var random = Math.random() * 100;
+  if (random <= 60) {
+    currentPlayer = 1;
+    statusDiv.innerHTML = player1Input + " turn";
+  }
+  else {
+    currentPlayer = 2;
+    statusDiv.innerHTML = player2Input + " turn";
+  }
 }
 //  statusDiv.style.color= "green";
 
@@ -40,9 +41,9 @@ const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
 const handleWin = (letter) => {
   gameIsLive = false;
   if (currentPlayer === 1) {
-    statusDiv.innerHTML = `Player 1 has won!`;
+    statusDiv.innerHTML = player1Input.value + " has won!";
   } else {
-    statusDiv.innerHTML = `<span> Player 2 has won!</span>`;
+    statusDiv.innerHTML = player2Input.value + " has won!";
   }
 };
 
@@ -106,13 +107,13 @@ const checkGameStatus = () => {
      xIsNext = !xIsNext;
 
      if (currentPlayer===2) {
-      statusDiv.innerHTML = `Player 1 turn`;
+      statusDiv.innerHTML = player2Input.value + ` turn`;
       currentPlayer=1;
 
    } else {
      currentPlayer=2;
-      statusDiv.innerHTML = `Player 2 turn`;
-    }
+      statusDiv.innerHTML = player1Input.value + ` turn`;
+    } 
   }
 };
 
