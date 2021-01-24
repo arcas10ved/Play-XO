@@ -17,6 +17,7 @@ let currentPlayer = 0;
 
 //Random generated
 function getInputValue() {
+  document.getElementById("container").style.display = "inline";
   let player1Input = document.getElementById("player1Input").value;
   let player2Input = document.getElementById("player2Input").value;
 
@@ -127,6 +128,7 @@ const checkGameStatus = () => {
 
 // event Handlers
 const handleReset = () => {
+  document.getElementById("container").style.display="none";
   xIsNext = true;
   statusDiv.innerHTML = `Press Start Game`;
   for (const cellDiv of cellDivs) {

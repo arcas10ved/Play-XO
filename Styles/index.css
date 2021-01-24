@@ -80,19 +80,20 @@ body {
 }
 
 .x {
-    background: blue;
+    
     color: transparent;
     cursor: default;
   }
   
 
 .o {
-  background: red;
+  
   color: transparent;
   cursor: default;
 }
 
 .x::after {
+  background: blue;
   background-image: url(../Resources/X.png);
   background-size:contain;
   background-repeat: no-repeat;
@@ -102,6 +103,7 @@ body {
 }
 
 .o::after {
+  background:red;
   background-image: url(../Resources/O.png);
   background-size:contain;
   background-repeat: no-repeat;
