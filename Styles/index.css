@@ -93,7 +93,8 @@ body {
 }
 
 .x::after {
-  background: blue;
+  
+  filter: invert(9%) sepia(100%) saturate(7261%) hue-rotate(247deg) brightness(91%) contrast(146%);
   background-image: url(../Resources/X.png);
   background-size:contain;
   background-repeat: no-repeat;
@@ -103,7 +104,8 @@ body {
 }
 
 .o::after {
-  background:red;
+  
+  filter: invert(14%) sepia(95%) saturate(6042%) hue-rotate(358deg) brightness(109%) contrast(117%);
   background-image: url(../Resources/O.png);
   background-size:contain;
   background-repeat: no-repeat;
