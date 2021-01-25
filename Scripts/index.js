@@ -6,6 +6,7 @@ const statusDiv = document.querySelector('.status');
 const resetDiv = document.querySelector('.reset');
 const cellDivs = document.querySelectorAll('.game-cell');
 
+
 // game constants
 const xSymbol = '×';
 const oSymbol = '○';
@@ -14,6 +15,9 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 let currentPlayer = 0;
+let playerColour1= document.getElementsByClassName("playerOneColour");
+let playerColour2= document.getElementsByClassName("playerTwoColour");
+
 
 //Random generated
 function getInputValue() {
@@ -21,6 +25,7 @@ function getInputValue() {
   document.getElementById("container").style.display = "inline";
   let player1Input = document.getElementById("player1Input").value;
   let player2Input = document.getElementById("player2Input").value;
+
 
   currentPlayer = 1;
 
@@ -30,11 +35,15 @@ function getInputValue() {
     statusDiv.innerHTML = player1Input + " turn";
     statusDiv.style.color= "blue";
     // style.filter="invert(9%) sepia(100%) saturate(7261%) hue-rotate(247deg) brightness(91%) contrast(146%)";
-  }
+
+     }
   else {
     currentPlayer = 2;
     statusDiv.innerHTML = player2Input + " turn";
     statusDiv.style.color= "red";
+    
+
+
     // oSymbol.style.filter="invert(14%) sepia(95%) saturate(6042%) hue-rotate(358deg) brightness(109%) contrast(117%)";
   }
 }
@@ -136,9 +145,11 @@ const checkGameStatus = () => {
 const handleReset = () => {
   document.getElementById("formInput").style.display="inline";
   document.getElementById("container").style.display="none";
+  
   xIsNext = true;
   statusDiv.innerHTML = `Press Start Game`;
   for (const cellDiv of cellDivs) {
+    
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
     cellDiv.classList.remove('won');
@@ -163,13 +174,19 @@ const handleCellClick = (e) => {
   // }
 
   if (xIsNext) {
-
-    classList.add('x');
+    
+    classList.add("x");
 
   } else {
 
     classList.add('o');
-
+    
+  }
+  
+  if (currentPlayer === 1){
+    classList.add('playerOneColour');
+  }else{
+    classList.add('playerTwoColour');
   }
   checkGameStatus();
 };

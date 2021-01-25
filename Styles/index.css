@@ -70,7 +70,7 @@ body {
 }
 
 .game-cell {
-  background: #ffffff;
+  background:white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,13 +80,14 @@ body {
 }
 
 
-/* .playerOneColour{ 
+.playerOneColour{ 
    filter: invert(9%) sepia(100%) saturate(7261%) hue-rotate(247deg) brightness(91%) contrast(146%);
 }
 
 .playerTwoColour{
+
   filter: invert(14%) sepia(95%) saturate(6042%) hue-rotate(358deg) brightness(109%) contrast(117%);
-} */
+} 
 .x {
     
     color: transparent;
@@ -101,27 +102,29 @@ body {
 }
 
 .x::after {
-  
+
   background-image: url(../Resources/X.png);
   background-size:contain;
   background-repeat: no-repeat;
   margin-top: 80px;
   content: '×';
+  
 
 }
 
 .o::after {
-  
+
   background-image: url(../Resources/O.png);
   background-size:contain;
   background-repeat: no-repeat;
   margin-top: 100px;
   content: '○';
   
+  
 }
 
 .won::after {
-  filter: invert(100%) sepia() saturate(10000%) hue-rotate(0deg);
+  filter: invert(100%) sepia() saturate(10000%) hue-rotate(0deg); 
 }
 
 @media only screen and (min-width: 1024px) {
