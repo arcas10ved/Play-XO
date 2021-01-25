@@ -134,6 +134,7 @@ const checkGameStatus = () => {
 
 // event Handlers
 const handleReset = () => {
+  document.getElementById("formInput").style.display="inline";
   document.getElementById("container").style.display="none";
   xIsNext = true;
   statusDiv.innerHTML = `Press Start Game`;
