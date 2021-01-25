@@ -17,6 +17,7 @@ let currentPlayer = 0;
 
 //Random generated
 function getInputValue() {
+  document.getElementById("formInput").style.display="none";
   document.getElementById("container").style.display = "inline";
   let player1Input = document.getElementById("player1Input").value;
   let player2Input = document.getElementById("player2Input").value;
@@ -28,14 +29,16 @@ function getInputValue() {
     currentPlayer = 1;
     statusDiv.innerHTML = player1Input + " turn";
     statusDiv.style.color= "blue";
+    // style.filter="invert(9%) sepia(100%) saturate(7261%) hue-rotate(247deg) brightness(91%) contrast(146%)";
   }
   else {
     currentPlayer = 2;
     statusDiv.innerHTML = player2Input + " turn";
     statusDiv.style.color= "red";
+    // oSymbol.style.filter="invert(14%) sepia(95%) saturate(6042%) hue-rotate(358deg) brightness(109%) contrast(117%)";
   }
 }
-//  statusDiv.style.color= "green";
+//  statusDiv.style.filter= "green";
 
 
 //functions
@@ -46,6 +49,7 @@ const handleWin = (letter) => {
   if (currentPlayer === 1) {
     statusDiv.innerHTML = player1Input.value + " has won!";
     statusDiv.style.color= "blue";
+
   } else {
     statusDiv.innerHTML = player2Input.value + " has won!";
     statusDiv.style.color= "red";
@@ -115,12 +119,14 @@ const checkGameStatus = () => {
       statusDiv.innerHTML = player1Input.value + ` turn`;
       statusDiv.style.color= "blue";
       currentPlayer = 1;
-      
+
 
     } else {
       currentPlayer = 2;
       statusDiv.style.color= "red";
       statusDiv.innerHTML = player2Input.value + ` turn`;
+
+
     }
   }
 };
@@ -140,6 +146,7 @@ const handleReset = () => {
 };
 
 const handleCellClick = (e) => {
+  
   const classList = e.target.classList;
 
   if (!gameIsLive || classList[1] === 'x' || classList[1] === 'o') {
@@ -155,9 +162,11 @@ const handleCellClick = (e) => {
   // }
 
   if (xIsNext) {
+
     classList.add('x');
 
   } else {
+
     classList.add('o');
 
   }
@@ -170,6 +179,7 @@ const handleCellClick = (e) => {
 resetDiv.addEventListener('click', handleReset);
 
 for (const cellDiv of cellDivs) {
+
   cellDiv.addEventListener('click', handleCellClick)
 }
 
