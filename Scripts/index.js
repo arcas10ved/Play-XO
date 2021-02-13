@@ -227,9 +227,9 @@ let reuseltNTI=numberToIndexes(cellType);
 console.log(reuseltNTI);
 }
 
-function numberToIndexes(number){
-  let row=number/3;
-  let column=number%3;
-  return [row,column];
+function numberToIndexes(number) {
+  let row = Math.floor(number / 3);
+  let column = number % 3;
+  return [row, column];
 }
 
