@@ -15,8 +15,7 @@ const oSymbol = '○';
 let gameIsLive = true;
 let xIsNext = true;
 let currentPlayer = 0;
-let playerColour1= document.getElementsByClassName("playerOneColour");
-let playerColour2= document.getElementsByClassName("playerTwoColour");
+
 
 
 //Random generated
@@ -34,7 +33,6 @@ function getInputValue() {
     currentPlayer = 1;
     statusDiv.innerHTML = player1Input + " turn";
     statusDiv.style.color= "blue";
-    // style.filter="invert(9%) sepia(100%) saturate(7261%) hue-rotate(247deg) brightness(91%) contrast(146%)";
 
      }
   else {
@@ -44,7 +42,6 @@ function getInputValue() {
     
 
 
-    // oSymbol.style.filter="invert(14%) sepia(95%) saturate(6042%) hue-rotate(358deg) brightness(109%) contrast(117%)";
   }
 }
 //  statusDiv.style.filter= "green";
@@ -75,6 +72,9 @@ const checkGameStatus = () => {
   const bottomLeft = cellDivs[6].classList[1];
   const bottomMiddle = cellDivs[7].classList[1];
   const bottomRight = cellDivs[8].classList[1];
+
+
+  
 
   // check winner
   if (topLeft && topLeft === topMiddle && topLeft === topRight) {
@@ -153,6 +153,8 @@ const handleReset = () => {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
     cellDiv.classList.remove('won');
+    document.location.reload()
+    
   }
   gameIsLive = true;
 };
@@ -163,15 +165,14 @@ const handleCellClick = (e) => {
 
   if (!gameIsLive || classList[1] === 'x' || classList[1] === 'o') {
     return;
+    
   }
 
-  // if (xIsNext) {
-  //   classList.add('x');
-  //   checkGameStatus();
-  // } else {
-  //   classList.add('o');
-  //   checkGameStatus();
-  // }
+  if (currentPlayer === 1){
+    classList.add('playerOneColour');
+  }else{
+    classList.add('playerTwoColour');
+  }
 
   if (xIsNext) {
     
@@ -183,11 +184,7 @@ const handleCellClick = (e) => {
     
   }
   
-  if (currentPlayer === 1){
-    classList.add('playerOneColour');
-  }else{
-    classList.add('playerTwoColour');
-  }
+ 
   checkGameStatus();
 };
 
@@ -198,10 +195,41 @@ resetDiv.addEventListener('click', handleReset);
 
 for (const cellDiv of cellDivs) {
 
-  cellDiv.addEventListener('click', handleCellClick)
+  cellDiv.addEventListener('click', handleCellClick);
+  cellDiv.addEventListener('click', handleCellSelection);
 }
 
 
+//Matrix Builder
+var counter=0;
+var matrix=[];
+for(var i=0;i<3;i++){
+  matrix[i]=[];
+  
+  for(var j=0;j<3;j++){
+    matrix[i][j]=[];
+     matrix[i][j]=counter;
+     ++counter;
+  }
 
+}
+console.log(matrix);
 
+0,1,2,3,4,5,6,7,8
+0,1,2,0,1,2,0,1,2
+
+function handleCellSelection(e){
+  
+let htmlElement=e.target;
+let cellType=htmlElement.getAttribute("data-cell");
+console.log(cellType);
+let reuseltNTI=numberToIndexes(cellType);
+console.log(reuseltNTI);
+}
+
+function numberToIndexes(number){
+  let row=number/3;
+  let column=number%3;
+  return [row,column];
+}
 
