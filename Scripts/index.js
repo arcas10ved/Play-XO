@@ -14,7 +14,7 @@ const oSymbol = '○';
 // game variables
 let gameIsLive = true;
 let xIsNext = true;
-let currentPlayer = 0;
+var currentPlayer = 0;
 
 
 
@@ -213,10 +213,11 @@ for(var i=0;i<3;i++){
   }
 
 }
+
 console.log(matrix);
 
-0,1,2,3,4,5,6,7,8
-0,1,2,0,1,2,0,1,2
+// 0,1,2,3,4,5,6,7,8
+// 0,1,2,0,1,2,0,1,2
 
 function handleCellSelection(e){
   
@@ -243,7 +244,8 @@ function numberToIndexes(number) {
 function isPlayerWinner(reuseltNTI, currentPlayer) {
   for (var i = 0; i < reuseltNTI.length; i++) {
     for (var j = 0; j < reuseltNTI[i].length; j++) {
-      if (reuseltNTI[i] === reuseltNTI[j]) {
+      if (reuseltNTI[i] === reuseltNTI[i]) {
+        console.log(currentPlayer + "Winner")
       } else if (reuseltNTI[i] + reuseltNTI[j] - 1) {
 
       }
