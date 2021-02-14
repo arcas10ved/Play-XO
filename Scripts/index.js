@@ -20,7 +20,7 @@ var currentPlayer = 0;
 
 //Random generated
 function getInputValue() {
-  document.getElementById("formInput").style.display="none";
+  document.getElementById("formInput").style.display = "none";
   document.getElementById("container").style.display = "inline";
   let player1Input = document.getElementById("player1Input").value;
   let player2Input = document.getElementById("player2Input").value;
@@ -32,14 +32,14 @@ function getInputValue() {
   if (random <= 60) {
     currentPlayer = 1;
     statusDiv.innerHTML = player1Input + " turn";
-    statusDiv.style.color= "blue";
+    statusDiv.style.color = "blue";
 
-     }
+  }
   else {
     currentPlayer = 2;
     statusDiv.innerHTML = player2Input + " turn";
-    statusDiv.style.color= "red";
-    
+    statusDiv.style.color = "red";
+
 
 
   }
@@ -54,11 +54,11 @@ const handleWin = (letter) => {
   gameIsLive = false;
   if (currentPlayer === 1) {
     statusDiv.innerHTML = player1Input.value + " has won!";
-    statusDiv.style.color= "blue";
+    statusDiv.style.color = "blue";
 
   } else {
     statusDiv.innerHTML = player2Input.value + " has won!";
-    statusDiv.style.color= "red";
+    statusDiv.style.color = "red";
   }
 };
 
@@ -74,7 +74,7 @@ const checkGameStatus = () => {
   const bottomRight = cellDivs[8].classList[1];
 
 
-  
+
 
   // check winner
   if (topLeft && topLeft === topMiddle && topLeft === topRight) {
@@ -126,13 +126,13 @@ const checkGameStatus = () => {
 
     if (currentPlayer === 2) {
       statusDiv.innerHTML = player1Input.value + ` turn`;
-      statusDiv.style.color= "blue";
+      statusDiv.style.color = "blue";
       currentPlayer = 1;
 
 
     } else {
       currentPlayer = 2;
-      statusDiv.style.color= "red";
+      statusDiv.style.color = "red";
       statusDiv.innerHTML = player2Input.value + ` turn`;
 
 
@@ -143,48 +143,48 @@ const checkGameStatus = () => {
 
 // event Handlers
 const handleReset = () => {
-  document.getElementById("formInput").style.display="inline";
-  document.getElementById("container").style.display="none";
-  
+  document.getElementById("formInput").style.display = "inline";
+  document.getElementById("container").style.display = "none";
+
   xIsNext = true;
   statusDiv.innerHTML = `Press Start Game`;
   for (const cellDiv of cellDivs) {
-    
+
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
     cellDiv.classList.remove('won');
     document.location.reload()
-    
+
   }
   gameIsLive = true;
 };
 
 const handleCellClick = (e) => {
-  
+
   const classList = e.target.classList;
 
   if (!gameIsLive || classList[1] === 'x' || classList[1] === 'o') {
     return;
-    
+
   }
 
-  if (currentPlayer === 1){
+  if (currentPlayer === 1) {
     classList.add('playerOneColour');
-  }else{
+  } else {
     classList.add('playerTwoColour');
   }
 
   if (xIsNext) {
-    
+
     classList.add("x");
 
   } else {
 
     classList.add('o');
-    
+
   }
-  
- 
+
+
   checkGameStatus();
 };
 
@@ -201,15 +201,15 @@ for (const cellDiv of cellDivs) {
 
 
 //Matrix Builder
-var counter=0;
-var matrix=[];
-for(var i=0;i<3;i++){
-  matrix[i]=[];
-  
-  for(var j=0;j<3;j++){
-    matrix[i][j]=[];
-     matrix[i][j]=counter;
-     ++counter;
+var counter = 0;
+var matrix = [];
+for (var i = 0; i < 3; i++) {
+  matrix[i] = [];
+
+  for (var j = 0; j < 3; j++) {
+    matrix[i][j] = [];
+    matrix[i][j] = counter;
+    ++counter;
   }
 
 }
@@ -219,36 +219,42 @@ console.log(matrix);
 // 0,1,2,3,4,5,6,7,8
 // 0,1,2,0,1,2,0,1,2
 
-function handleCellSelection(e){
-  
-let htmlElement=e.target;
-let cellType=htmlElement.getAttribute("data-cell");
-console.log(cellType);
-let reuseltNTI=numberToIndexes(cellType);
-console.log(reuseltNTI);
+function handleCellSelection(e) {
 
-if(currentPlayer===2){
-  reuseltNTI.splice(0,2)
-  reuseltNTI.push("x");
-}else{reuseltNTI.splice(0,2);
-  reuseltNTI.push("O");}
-console.log(reuseltNTI);
+  let htmlElement = e.target;
+  let cellType = htmlElement.getAttribute("data-cell");
+  console.log(cellType);
+  let reuseltNTI = numberToIndexes(cellType);
+  console.log(reuseltNTI);
+
+  if (currentPlayer === 2) {
+    reuseltNTI.splice(0, 2)
+    reuseltNTI.push("x");
+  } else {
+    reuseltNTI.splice(0, 2);
+    reuseltNTI.push("O");
+  }
+  console.log(reuseltNTI);
 }
 
 function numberToIndexes(number) {
   let row = Math.floor(number / 3);
   let column = number % 3;
-   return [row, column];
+  return [row, column];
 }
 
 function isPlayerWinner(reuseltNTI, currentPlayer) {
   for (var i = 0; i < reuseltNTI.length; i++) {
     for (var j = 0; j < reuseltNTI[i].length; j++) {
       if (reuseltNTI[i] === reuseltNTI[i]) {
-        console.log(currentPlayer + "Winner")
-      } else if (reuseltNTI[i] + reuseltNTI[j] - 1) {
-
-      }
+        console.log(currentPlayer + "Winner");
+      } else if (reuseltNTI[j] === reuseltNTI[j]) {
+        console.log(currentPlayer + "Winner");
+      } else if (reuseltNTI[i] === reuseltNTI[j])
+        console.log(currentPlayer + "Winner");
+    } if (reuseltNTI[i] + reuseltNTI[j] - 1) {
+      console.log(currentPlayer + "Winner");
     }
   }
 }
+isPlayerWinner;
