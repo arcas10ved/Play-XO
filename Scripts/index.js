@@ -225,11 +225,28 @@ let cellType=htmlElement.getAttribute("data-cell");
 console.log(cellType);
 let reuseltNTI=numberToIndexes(cellType);
 console.log(reuseltNTI);
+
+if(currentPlayer===2){
+  reuseltNTI.splice(0,2)
+  reuseltNTI.push("x");
+}else{reuseltNTI.splice(0,2);
+  reuseltNTI.push("O");}
+console.log(reuseltNTI);
 }
 
 function numberToIndexes(number) {
   let row = Math.floor(number / 3);
   let column = number % 3;
-  return [row, column];
+   return [row, column];
 }
 
+function isPlayerWinner(reuseltNTI, currentPlayer) {
+  for (var i = 0; i < reuseltNTI.length; i++) {
+    for (var j = 0; j < reuseltNTI[i].length; j++) {
+      if (reuseltNTI[i] === reuseltNTI[j]) {
+      } else if (reuseltNTI[i] + reuseltNTI[j] - 1) {
+
+      }
+    }
+  }
+}
