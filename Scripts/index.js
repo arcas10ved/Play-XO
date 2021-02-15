@@ -258,3 +258,80 @@ function isPlayerWinner(reuseltNTI, currentPlayer) {
   }
 }
 isPlayerWinner;
+
+
+
+
+
+function dropDownFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+
+}
+window.onclick = function (event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+let btnGrid3 = document.getElementById("grid3");
+let btnGrid4 = document.getElementById("grid4");
+let btnGrid5 = document.getElementById("grid5");
+
+btnGrid3.addEventListener("click", createGrid1);
+btnGrid4.addEventListener("click", createGrid2);
+btnGrid5.addEventListener("click", createGrid3);
+
+
+function createGrid1() {
+  var gridContainer = document.getElementById("newContainer");
+  gridContainer = "";
+  numberOfRows=3;
+  let x = numberOfRows * numberOfRows;
+
+  for (let i = 0; i < numberOfRows; i++) {
+    var divRow = document.createElement("div");
+    document.getElementById("newContainer").appendChild(divRow);
+    for (let j = 0; j < numberOfRows; j++) {
+      let divCol = document.createElement("div");
+      divRow.appendChild(divCol);
+    }
+  }
+}
+function createGrid2() {
+  var gridContainer = document.getElementById("newContainer");
+  gridContainer = "";
+  numberOfRows=4;
+  let x = numberOfRows * numberOfRows;
+
+  for (let i = 0; i < numberOfRows; i++) {
+    var divRow = document.createElement("div");
+    document.getElementById("newContainer").appendChild(divRow);
+    for (let j = 0; j < numberOfRows; j++) {
+      let divCol = document.createElement("div");
+      divRow.appendChild(divCol);
+    }
+  }
+}
+function createGrid3() {
+  var gridContainer = document.getElementById("newContainer");
+  gridContainer = "";
+  numberOfRows=5;
+  let x = numberOfRows * numberOfRows;
+
+  for (let i = 0; i < numberOfRows; i++) {
+    var divRow = document.createElement("div");
+    document.getElementById("newContainer").appendChild(divRow);
+    for (let j = 0; j < numberOfRows; j++) {
+      let divCol = document.createElement("div");
+      divRow.appendChild(divCol);
+    }
+  }
+}

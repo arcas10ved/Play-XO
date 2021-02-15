@@ -17,14 +17,14 @@
         <input type="text" id="player1Input"><br>
         <label for="player1" id="player2">Player 2:</label><br>
         <input type="text" id="player2Input"><br><br>
-        <button type="button" onclick="getInputValue();" > Start Game</button>
-        
-       
-        
+        <button type="button" onclick="getInputValue();"> Start Game</button>
+
+
+
 
     </form>
+    <br>
 
-    
     </form>
 
     <div class="container" style="display:none" id="container">
@@ -45,6 +45,22 @@
             <div class="game-cell" data-cell="8"></div>
         </div>
     </div>
+
+
+    <div class="dropdown">
+        <button onclick="dropDownFunction()" class="dropbtn">Choose grid size</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#" id="grid3" >3x3</a>
+            <a href="#" id="grid4" >4x4</a>
+            <a href="#" id="grid5" >5x5</a>
+        </div>
+
+    </div>
+
+    <div id="newContainer"></div>
+
+
+
 
     <script src="Scripts/index.js"></script>
 
