@@ -263,7 +263,7 @@ function handleCellSelection(e) {
 
 
   function isPlayerWinner(matrix, currentPlayer) {
-    if (playerCounter < 1) {
+    if (playerCounter < 6) {
       return;
     } else {
 
@@ -271,6 +271,7 @@ function handleCellSelection(e) {
       for (var i = 0; i < matrix[0].length; i++) {
 
         console.log(matrix[i][reuseNTI[1]]);
+
 
 
         // console.log(matrix[i, 0].lastIndexOf("X")) ;  //000↓,111↓,222↓
