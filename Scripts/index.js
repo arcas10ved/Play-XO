@@ -200,6 +200,24 @@ for (const cellDiv of cellDivs) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Matrix Builder
 var counter = 0;
 var matrix = [];
@@ -219,9 +237,10 @@ for (var i = 0; i < 3; i++) {
 // 0,1,2,3,4,5,6,7,8
 // 0,1,2,0,1,2,0,1,2
 var playerCounter = 1;
+var currentPlayer = 1;
 function handleCellSelection(e) {
 
-  console.log(playerCounter++)
+  playerCounter++;
   let htmlElement = e.target;
   let cellType = htmlElement.getAttribute("data-cell");
   let reuseNTI = numberToIndexes(cellType);
@@ -229,10 +248,20 @@ function handleCellSelection(e) {
   let isWinnerFunction = isPlayerWinner(matrix);
 
   function indexInMatrix(index1, index2) {
-    return matrix[index1].splice([index2], 1, "X");
+    if (currentPlayer === 2) {
+      return matrix[index1].splice([index2], 1, "X");
+      currentPlayer = 1;
+    } else {
+      return matrix[index1].splice([index2], 1, "O");
+      currentPlayer = 2;
+
+    }
+
   }
 
-  console.log(matrix)
+
+  console.log(matrix);
+
 }
 
 function numberToIndexes(number) {
