@@ -230,7 +230,7 @@ function handleCellSelection(e) {
 
 
   function indexInMatrix(index1, index2) {
-    let position = [index1][index2]
+
     console.log(matrix[index1].splice([index2], 1, "X"));
     console.log(matrix);
   }
