@@ -294,7 +294,7 @@ for (var i = 0; i < matrixRows; i++) {
   }
 }
 
-function myFunction() {
+function newMatrixGrid() {
   var grid3x3 = document.getElementById("matrixMaker").value;
   if (grid3x3 == "3") {
     var matrixStage = document.querySelector("#matrixStage").style.display = "block";
