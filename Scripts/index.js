@@ -210,11 +210,11 @@ for (var i = 0; i < 3; i++) {
     matrix[i][j] = [];
     matrix[i][j] = counter;
     ++counter;
+
   }
 
 }
 
-console.log(matrix);
 
 // 0,1,2,3,4,5,6,7,8
 // 0,1,2,0,1,2,0,1,2
@@ -223,19 +223,23 @@ function handleCellSelection(e) {
 
   let htmlElement = e.target;
   let cellType = htmlElement.getAttribute("data-cell");
-  console.log(cellType);
-  let reuseltNTI = numberToIndexes(cellType);
-  console.log(reuseltNTI);
+  let reuseNTI = numberToIndexes(cellType);
 
-  if (currentPlayer === 2) {
-    reuseltNTI.splice(0, 2)
-    reuseltNTI.push("x");
-  } else {
-    reuseltNTI.splice(0, 2);
-    reuseltNTI.push("O");
+
+  // console.log(matrix[].splice(reuseNTI, 1, "X"))
+
+
+  function indexInMatrix(index1, index2) {
+    let position = [index1][index2]
+    console.log(matrix[index1].splice([index2], 1, "X"));
+    console.log(matrix);
   }
-  console.log(reuseltNTI);
+  indexInMatrix(reuseNTI[0], reuseNTI[1]);
 }
+
+
+
+
 
 function numberToIndexes(number) {
   let row = Math.floor(number / 3);
@@ -243,95 +247,20 @@ function numberToIndexes(number) {
   return [row, column];
 }
 
+
+
+
 function isPlayerWinner(reuseltNTI, currentPlayer) {
-  for (var i = 0; i < reuseltNTI.length; i++) {
-    for (var j = 0; j < reuseltNTI[i].length; j++) {
-      if (reuseltNTI[i] === reuseltNTI[i]) {
-        console.log(currentPlayer + "Winner");
-      } else if (reuseltNTI[j] === reuseltNTI[j]) {
-        console.log(currentPlayer + "Winner");
-      } else if (reuseltNTI[i] === reuseltNTI[j])
-        console.log(currentPlayer + "Winner");
-    } if (reuseltNTI[i] + reuseltNTI[j] - 1) {
-      console.log(currentPlayer + "Winner");
-    }
-  }
+  //TO DO CHECK COLUMN
+
+  //TO DO CHECK ROW
+
+  //TO DO CHECK PRIMARY DIAGONAL
+
+  //TO DO CHECK SECONDARY DIAGONAL
+
+
+
 }
 isPlayerWinner;
 
-
-
-
-
-function dropDownFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-
-}
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
-
-let btnGrid3 = document.getElementById("grid3");
-let btnGrid4 = document.getElementById("grid4");
-let btnGrid5 = document.getElementById("grid5");
-
-btnGrid3.addEventListener("click", createGrid1);
-btnGrid4.addEventListener("click", createGrid2);
-btnGrid5.addEventListener("click", createGrid3);
-
-
-function createGrid1() {
-  var gridContainer = document.getElementById("newContainer");
-  gridContainer = "";
-  numberOfRows=3;
-  let x = numberOfRows * numberOfRows;
-
-  for (let i = 0; i < numberOfRows; i++) {
-    var divRow = document.createElement("div");
-    document.getElementById("newContainer").appendChild(divRow);
-    for (let j = 0; j < numberOfRows; j++) {
-      let divCol = document.createElement("div");
-      divRow.appendChild(divCol);
-    }
-  }
-}
-function createGrid2() {
-  var gridContainer = document.getElementById("newContainer");
-  gridContainer = "";
-  numberOfRows=4;
-  let x = numberOfRows * numberOfRows;
-
-  for (let i = 0; i < numberOfRows; i++) {
-    var divRow = document.createElement("div");
-    document.getElementById("newContainer").appendChild(divRow);
-    for (let j = 0; j < numberOfRows; j++) {
-      let divCol = document.createElement("div");
-      divRow.appendChild(divCol);
-    }
-  }
-}
-function createGrid3() {
-  var gridContainer = document.getElementById("newContainer");
-  gridContainer = "";
-  numberOfRows=5;
-  let x = numberOfRows * numberOfRows;
-
-  for (let i = 0; i < numberOfRows; i++) {
-    var divRow = document.createElement("div");
-    document.getElementById("newContainer").appendChild(divRow);
-    for (let j = 0; j < numberOfRows; j++) {
-      let divCol = document.createElement("div");
-      divRow.appendChild(divCol);
-    }
-  }
-}
