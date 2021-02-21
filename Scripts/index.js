@@ -239,17 +239,19 @@ for (var i = 0; i < 3; i++) {
 var playerCounter = 1;
 var currentPlayer = 1;
 function handleCellSelection(e) {
-
   playerCounter++;
+
   let htmlElement = e.target;
   let cellType = htmlElement.getAttribute("data-cell");
   let reuseNTI = numberToIndexes(cellType);
   let matrixIndex = indexInMatrix(reuseNTI[0], reuseNTI[1]);
   let isWinnerFunction = isPlayerWinner(matrix);
 
+
+
   function indexInMatrix(index1, index2) {
     if (currentPlayer === 2) {
-      return matrix[index1].splice([index2], 1, "X");
+      return matrix[index1].splice([index2], 1, "X")
       currentPlayer = 1;
     } else {
       return matrix[index1].splice([index2], 1, "O");
@@ -260,44 +262,66 @@ function handleCellSelection(e) {
   }
 
 
-  console.log(matrix);
+  function isPlayerWinner(matrix, currentPlayer) {
+    if (playerCounter < 1) {
+      return;
+    } else {
 
+      //TO DO CHECK COLUMN
+      for (var i = 0; i < matrix[0].length; i++) {
+
+        console.log(matrix[i][reuseNTI[1]]);
+
+
+        // console.log(matrix[i, 0].lastIndexOf("X")) ;  //000↓,111↓,222↓
+        // console.log(matrix[i, 0].lastIndexOf("O"));
+
+      }
+      //TO DO CHECK ROW
+      for (var i = 0; i < matrix[0].length; i++) {
+
+        matrix[reuseNTI[1]][i];
+
+
+        // console.log(matrix[0, i].lastIndexOf("X")) ; //row is 000->,111->,222->
+        // console.log(matrix[0, i].lastIndexOf("O"));
+      }
+      //TO DO CHECK PRIMARY DIAGONAL
+      for (var i = 0; i < matrix[0].length; i++) {
+
+        matrix[i][i];
+
+
+        // console.log(matrix[i, i].lastIndexOf("X"));   //012->,012->,012->
+        // console.log(matrix[i, i].lastIndexOf("O"));
+      }
+      //TO DO CHECK SECONDARY DIAGONAL
+      for (var i = 0; i < matrix[0].length; i++) {
+
+        matrix[i][matrix.length - 1 - i];
+
+
+        // console.log(matrix[i, matrix.length - 1 - i].lastIndexOf("X"));
+        // console.log(matrix[i, [matrix.length - 1 - i]].lastIndexOf("O"));
+      }
+
+    }
+  }
+  isPlayerWinner(matrix);
+
+
+  console.log(matrix);
 }
+
+
 
 function numberToIndexes(number) {
   let row = Math.floor(number / 3);
   let column = number % 3;
   return [row, column];
-
 }
 
 
-function isPlayerWinner(matrix, currentPlayer) {
-  if (playerCounter < 6) {
-    return;
-  } else {
-    //TO DO CHECK COLUMN
-    for (var i = 0; i < matrix[0].length; i++) {
-
-      // console.log(matrix[i][0]);
-    }
-
-    //TO DO CHECK ROW
-    for (var i = 0; i < matrix[0].length; i++) {
-      // console.log(matrix[0][i]);
-    }
-    //TO DO CHECK PRIMARY DIAGONAL
-    for (var i = 0; i < matrix[0].length; i++) {
-      // console.log(matrix[i][i]);
-    }
-    //TO DO CHECK SECONDARY DIAGONAL
-    for (var i = 0; i < matrix[0].length; i++) {
-      console.log(matrix[i][matrix.length - 1 - i]);
-    }
-
-  }
-}
-isPlayerWinner(matrix);
 
 
 
