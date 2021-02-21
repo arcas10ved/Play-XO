@@ -218,49 +218,87 @@ for (var i = 0; i < 3; i++) {
 
 // 0,1,2,3,4,5,6,7,8
 // 0,1,2,0,1,2,0,1,2
-
+var playerCounter = 1;
 function handleCellSelection(e) {
 
+  console.log(playerCounter++)
   let htmlElement = e.target;
   let cellType = htmlElement.getAttribute("data-cell");
   let reuseNTI = numberToIndexes(cellType);
-
-
-  // console.log(matrix[].splice(reuseNTI, 1, "X"))
-
+  let matrixIndex = indexInMatrix(reuseNTI[0], reuseNTI[1]);
+  let isWinnerFunction = isPlayerWinner(matrix);
 
   function indexInMatrix(index1, index2) {
-
-    console.log(matrix[index1].splice([index2], 1, "X"));
-    console.log(matrix);
+    return matrix[index1].splice([index2], 1, "X");
   }
-  indexInMatrix(reuseNTI[0], reuseNTI[1]);
+
+  console.log(matrix)
 }
-
-
-
-
 
 function numberToIndexes(number) {
   let row = Math.floor(number / 3);
   let column = number % 3;
   return [row, column];
-}
-
-
-
-
-function isPlayerWinner(reuseltNTI, currentPlayer) {
-  //TO DO CHECK COLUMN
-
-  //TO DO CHECK ROW
-
-  //TO DO CHECK PRIMARY DIAGONAL
-
-  //TO DO CHECK SECONDARY DIAGONAL
-
-
 
 }
-isPlayerWinner;
 
+
+function isPlayerWinner(matrix, currentPlayer) {
+  if (playerCounter < 6) {
+    return;
+  } else {
+    //TO DO CHECK COLUMN
+    for (var i = 0; i < matrix[0].length; i++) {
+
+      // console.log(matrix[i][0]);
+    }
+
+    //TO DO CHECK ROW
+    for (var i = 0; i < matrix[0].length; i++) {
+      // console.log(matrix[0][i]);
+    }
+    //TO DO CHECK PRIMARY DIAGONAL
+    for (var i = 0; i < matrix[0].length; i++) {
+      // console.log(matrix[i][i]);
+    }
+    //TO DO CHECK SECONDARY DIAGONAL
+    for (var i = 0; i < matrix[0].length; i++) {
+      console.log(matrix[i][matrix.length - 1 - i]);
+    }
+
+  }
+}
+isPlayerWinner(matrix);
+
+
+
+
+
+var cellSize = 100;
+var cellSpace = 10;
+
+var matrixRows = matrix.length;
+var matrixColumns = matrix[0].length;
+
+for (var i = 0; i < matrixRows; i++) {
+
+  for (var j = 0; j < matrixColumns; j++) {
+
+    var cell = document.createElement("div");
+
+    cell.setAttribute("class", "cell");
+    matrixStage.appendChild(cell);
+
+    cell.style.top = i * (cellSize + cellSpace) + "px";
+    cell.style.left = j * (cellSize + cellSpace) + "px";
+  }
+}
+
+function myFunction() {
+  var grid3x3 = document.getElementById("matrixMaker").value;
+  if (grid3x3 == "3") {
+    var matrixStage = document.querySelector("#matrixStage").style.display = "block";
+  } else {
+    matrixStage = document.querySelector("#matrixStage").style.display = "none";
+  }
+}
