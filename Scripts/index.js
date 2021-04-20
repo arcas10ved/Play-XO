@@ -272,10 +272,10 @@ function handleCellSelection(e) {
 
       //TO DO CHECK COLUMN
       for (var i = 0; i < matrix[0].length; i++) {
-        // console.log(count++);
-        if (xSign === matrix[i][reuseNTI[0]] && counter === 3) {
+
+        if (xSign === matrix[i][reuseNTI[0]]) {
           alert("X is Winner");
-        } else if (oSign === matrix[i][reuseNTI[0]] && counter === 3) {
+        } else if (oSign === matrix[i][reuseNTI[0]]) {
           alert("O is Winner");
         }
 
@@ -287,9 +287,9 @@ function handleCellSelection(e) {
       }
       //TO DO CHECK ROW
       for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[reuseNTI[0][i]] && counter === 3) {
+        if (xSign === matrix[reuseNTI[0][i]]) {
           alert("X is Winner");
-        } else if (oSign === matrix[reuseNTI[0]][i] && counter === 3) {
+        } else if (oSign === matrix[reuseNTI[0]][i]) {
           alert("O is Winner");
         }
 
@@ -300,9 +300,9 @@ function handleCellSelection(e) {
       }
       //TO DO CHECK PRIMARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[i][i] && counter === 3) {
+        if (xSign === matrix[i][i]) {
           alert("X is Winner");
-        } else if (oSign === matrix[i][i] && counter === 3) {
+        } else if (oSign === matrix[i][i]) {
           alert("O is Winner");
         }
 
@@ -313,9 +313,9 @@ function handleCellSelection(e) {
       }
       //TO DO CHECK SECONDARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[i][matrix.length - 1 - i] && counter === 3) {
+        if (xSign === matrix[i][matrix.length - 1 - i]) {
           alert("X is Winner");
-        } else if (oSign === matrix[i][matrix.length - 1 - i] && counter === 3) {
+        } else if (oSign === matrix[i][matrix.length - 1 - i]) {
           alert("O is Winner");
         }
 
