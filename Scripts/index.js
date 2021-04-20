@@ -263,23 +263,27 @@ function handleCellSelection(e) {
 
 
   function isPlayerWinner(matrix, currentPlayer) {
-    if (playerCounter < 1) {
+    if (playerCounter < 6) {
       return;
     } else {
       var xSign = "X";
       var oSign = "O";
-      var count = 0;
+      let rowX = 0;
+      let rowO = 0;
 
       //TO DO CHECK COLUMN
       for (var i = 0; i < matrix[0].length; i++) {
-
         if (xSign === matrix[i][reuseNTI[0]]) {
-          alert("X is Winner");
+          rowX++
+
+
         } else if (oSign === matrix[i][reuseNTI[0]]) {
-          alert("O is Winner");
+          rowO++
+          console.log(rowO)
+
         }
 
-        // console.log(matrix[i][reuseNTI[0]]);
+
 
         // console.log(matrix[i, 0].lastIndexOf("X")) ;  //000↓,111↓,222↓
         // console.log(matrix[i, 0].lastIndexOf("O"));
@@ -288,22 +292,22 @@ function handleCellSelection(e) {
       //TO DO CHECK ROW
       for (var i = 0; i < matrix[0].length; i++) {
         if (xSign === matrix[reuseNTI[0][i]]) {
-          alert("X is Winner");
+
         } else if (oSign === matrix[reuseNTI[0]][i]) {
-          alert("O is Winner");
+
         }
 
 
-        console.log(matrix[reuseNTI[0]][i]);
+
         // console.log(matrix[0, i].lastIndexOf("X")) ; //row is 000->,111->,222->
         // console.log(matrix[0, i].lastIndexOf("O"));
       }
       //TO DO CHECK PRIMARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
         if (xSign === matrix[i][i]) {
-          alert("X is Winner");
+
         } else if (oSign === matrix[i][i]) {
-          alert("O is Winner");
+
         }
 
 
@@ -314,9 +318,9 @@ function handleCellSelection(e) {
       //TO DO CHECK SECONDARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
         if (xSign === matrix[i][matrix.length - 1 - i]) {
-          alert("X is Winner");
+
         } else if (oSign === matrix[i][matrix.length - 1 - i]) {
-          alert("O is Winner");
+
         }
 
 
