@@ -263,16 +263,23 @@ function handleCellSelection(e) {
 
 
   function isPlayerWinner(matrix, currentPlayer) {
-    if (playerCounter < 6) {
+    if (playerCounter < 1) {
       return;
     } else {
+      var xSign = "X";
+      var oSign = "O";
+      var count = 0;
 
       //TO DO CHECK COLUMN
       for (var i = 0; i < matrix[0].length; i++) {
+        // console.log(count++);
+        if (xSign === matrix[i][reuseNTI[0]] && counter === 3) {
+          alert("X is Winner");
+        } else if (oSign === matrix[i][reuseNTI[0]] && counter === 3) {
+          alert("O is Winner");
+        }
 
-        console.log(matrix[i][reuseNTI[1]]);
-
-
+        // console.log(matrix[i][reuseNTI[0]]);
 
         // console.log(matrix[i, 0].lastIndexOf("X")) ;  //000↓,111↓,222↓
         // console.log(matrix[i, 0].lastIndexOf("O"));
@@ -280,28 +287,40 @@ function handleCellSelection(e) {
       }
       //TO DO CHECK ROW
       for (var i = 0; i < matrix[0].length; i++) {
+        if (xSign === matrix[reuseNTI[0][i]] && counter === 3) {
+          alert("X is Winner");
+        } else if (oSign === matrix[reuseNTI[0]][i] && counter === 3) {
+          alert("O is Winner");
+        }
 
-        matrix[reuseNTI[1]][i];
 
-
+        console.log(matrix[reuseNTI[0]][i]);
         // console.log(matrix[0, i].lastIndexOf("X")) ; //row is 000->,111->,222->
         // console.log(matrix[0, i].lastIndexOf("O"));
       }
       //TO DO CHECK PRIMARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
+        if (xSign === matrix[i][i] && counter === 3) {
+          alert("X is Winner");
+        } else if (oSign === matrix[i][i] && counter === 3) {
+          alert("O is Winner");
+        }
 
-        matrix[i][i];
 
-
+        // matrix[i][i];
         // console.log(matrix[i, i].lastIndexOf("X"));   //012->,012->,012->
         // console.log(matrix[i, i].lastIndexOf("O"));
       }
       //TO DO CHECK SECONDARY DIAGONAL
       for (var i = 0; i < matrix[0].length; i++) {
+        if (xSign === matrix[i][matrix.length - 1 - i] && counter === 3) {
+          alert("X is Winner");
+        } else if (oSign === matrix[i][matrix.length - 1 - i] && counter === 3) {
+          alert("O is Winner");
+        }
 
-        matrix[i][matrix.length - 1 - i];
 
-
+        // matrix[i][matrix.length - 1 - i];
         // console.log(matrix[i, matrix.length - 1 - i].lastIndexOf("X"));
         // console.log(matrix[i, [matrix.length - 1 - i]].lastIndexOf("O"));
       }
