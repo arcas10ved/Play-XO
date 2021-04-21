@@ -262,20 +262,24 @@ function handleCellSelection(e) {
   }
 
   function isPlayerWinner() {
-    for (let i = 0; i < 3; i++) {
-      const row = matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2];
-      const column = matrix[0][i] === matrix[1][i] && matrix[1][i] === matrix[2][i];
-      if (column || row) {
-        return console.log(true)
+    if (playerCounter < 6) {
+      return;
+    } else {
+      for (let i = 0; i < 3; i++) {
+        const row = matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2];
+        const column = matrix[0][i] === matrix[1][i] && matrix[1][i] === matrix[2][i];
+        if (column || row) {
+          return console.log(true);
+        }
       }
+      if (matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2]) {
+        return console.log(true);
+      }
+      if (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0]) {
+        return console.log(true);
+      }
+      return console.log(false);
     }
-    if (matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2]) {
-      return console.log(true);
-    }
-    if (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0]) {
-      return console.log(true);
-    }
-    return false
   }
   isPlayerWinner(matrix);
 
