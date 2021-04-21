@@ -261,75 +261,21 @@ function handleCellSelection(e) {
 
   }
 
-
-  function isPlayerWinner(matrix, currentPlayer) {
-    if (playerCounter < 6) {
-      return;
-    } else {
-      var xSign = "X";
-      var oSign = "O";
-      let rowX = 0;
-      let rowO = 0;
-
-      //TO DO CHECK COLUMN
-      for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[i][reuseNTI[0]]) {
-          rowX++
-
-
-        } else if (oSign === matrix[i][reuseNTI[0]]) {
-          rowO++
-          console.log(rowO)
-
-        }
-
-
-
-        // console.log(matrix[i, 0].lastIndexOf("X")) ;  //000↓,111↓,222↓
-        // console.log(matrix[i, 0].lastIndexOf("O"));
-
+  function isPlayerWinner() {
+    for (let i = 0; i < 3; i++) {
+      const row = matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2];
+      const column = matrix[0][i] === matrix[1][i] && matrix[1][i] === matrix[2][i];
+      if (column || row) {
+        return console.log(true)
       }
-      //TO DO CHECK ROW
-      for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[reuseNTI[0][i]]) {
-
-        } else if (oSign === matrix[reuseNTI[0]][i]) {
-
-        }
-
-
-
-        // console.log(matrix[0, i].lastIndexOf("X")) ; //row is 000->,111->,222->
-        // console.log(matrix[0, i].lastIndexOf("O"));
-      }
-      //TO DO CHECK PRIMARY DIAGONAL
-      for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[i][i]) {
-
-        } else if (oSign === matrix[i][i]) {
-
-        }
-
-
-        // matrix[i][i];
-        // console.log(matrix[i, i].lastIndexOf("X"));   //012->,012->,012->
-        // console.log(matrix[i, i].lastIndexOf("O"));
-      }
-      //TO DO CHECK SECONDARY DIAGONAL
-      for (var i = 0; i < matrix[0].length; i++) {
-        if (xSign === matrix[i][matrix.length - 1 - i]) {
-
-        } else if (oSign === matrix[i][matrix.length - 1 - i]) {
-
-        }
-
-
-        // matrix[i][matrix.length - 1 - i];
-        // console.log(matrix[i, matrix.length - 1 - i].lastIndexOf("X"));
-        // console.log(matrix[i, [matrix.length - 1 - i]].lastIndexOf("O"));
-      }
-
     }
+    if (matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2]) {
+      return console.log(true);
+    }
+    if (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0]) {
+      return console.log(true);
+    }
+    return false
   }
   isPlayerWinner(matrix);
 
