@@ -269,16 +269,16 @@ function handleCellSelection(e) {
         const row = matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2];
         const column = matrix[0][i] === matrix[1][i] && matrix[1][i] === matrix[2][i];
         if (column || row) {
-          return console.log(true);
+          return console.log(true); //Row or Column
         }
       }
       if (matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2]) {
-        return console.log(true);
+        return console.log(true); //Lef to right Diagonal
       }
       if (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0]) {
-        return console.log(true);
+        return console.log(true); //Right to  left Diagonal
       }
-      return console.log(false);
+      return false;
     }
   }
   isPlayerWinner(matrix);
