@@ -268,17 +268,28 @@ function handleCellSelection(e) {
       for (let i = 0; i < 3; i++) {
         const row = matrix[i][0] === matrix[i][1] && matrix[i][1] === matrix[i][2];
         const column = matrix[0][i] === matrix[1][i] && matrix[1][i] === matrix[2][i];
-        if (column || row) {
-          return console.log(true); //Row or Column
+        if (column) {
+          console.log(matrix[i][0] === "X" ? "X is Winner" : "O is Winner")
+          return true; //Row or Column
+        } else if (row) {
+          console.log(matrix[0][i] === "X" ? "X is Winner" : "O is Winner"); //Row or Column
+          return true;
         }
+
+        if (matrix[i][i] === matrix[i][i]) {
+          console.log(matrix[i][i] === "X" ? "X is Winner" : "O is Winner");  //Lef to right Diagonal
+          return true;
+        }
+
+        if (matrix[i][matrix.length - 1 - i]) {
+          console.log("X is the Winner"); //Right to  left Diagonal
+          return true;
+        } else {
+          console.log("O is the Winner");
+          return true;
+        }
+        return false;
       }
-      if (matrix[0][0] === matrix[1][1] && matrix[1][1] === matrix[2][2]) {
-        return console.log(true); //Lef to right Diagonal
-      }
-      if (matrix[0][2] === matrix[1][1] && matrix[1][1] === matrix[2][0]) {
-        return console.log(true); //Right to  left Diagonal
-      }
-      return false;
     }
   }
   isPlayerWinner(matrix);
